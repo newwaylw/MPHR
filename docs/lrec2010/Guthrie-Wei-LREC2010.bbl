@@ -1,0 +1,132 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citename{Belazzougui \bgroup et al.\egroup }2009]{CHD-2009}
+Djamal Belazzougui, Fabiano Botelho, and Martin Dietzfelbinger.
+\newblock 2009.
+\newblock Hash, displace, and compress.
+\newblock {\em Algorithms - ESA 2009}, pages 682--693.
+
+\bibitem[\protect\citename{Bloom}1970]{bloom}
+Burton~H. Bloom.
+\newblock 1970.
+\newblock Space/time trade-offs in hash coding with allowable errors.
+\newblock {\em Commun. ACM}, 13(7):422--426.
+
+\bibitem[\protect\citename{Botelho \bgroup et al.\egroup }2007]{Botelho1997}
+Fabiano~C. Botelho, Rasmus Pagh, and Nivio Ziviani.
+\newblock 2007.
+\newblock Simple and space-efficient minimal perfect hash functions.
+\newblock In {\em Proceedings of 10th Workshop on Algorithms and Data
+  Structures}, volume 4619, pages 139--150.
+
+\bibitem[\protect\citename{Brants and Franz}2006]{GoogleWeb1T}
+Thorsten Brants and Alex Franz.
+\newblock 2006.
+\newblock {Google Web 1T 5-gram Corpus}, version 1.
+\newblock Linguistic Data Consortium, Philadelphia, Catalog No.:LDC2006T13,
+  September.
+
+\bibitem[\protect\citename{Brants \bgroup et al.\egroup }2007]{Brants-2007}
+Thorsten Brants, Ashok~C. Popat, Peng Xu, Franz~J. Och, and Jeffrey Dean.
+\newblock 2007.
+\newblock Large language models in machine translation.
+\newblock In {\em Proceedings of EMNLP-CoNLL}, pages 858--867.
+
+\bibitem[\protect\citename{Chazelle \bgroup et al.\egroup }2004]{bloomier}
+Bernard Chazelle, Joe Kilian, Ronitt Rubinfeld, and Ayellet Tal.
+\newblock 2004.
+\newblock The bloomier filter: an efficient data structure for static support
+  lookup tables.
+\newblock In {\em SODA '04}, pages 30--39, Philadelphia, PA, USA.
+
+\bibitem[\protect\citename{Clarkson and Rosenfeld}1997]{cmu}
+Philip Clarkson and Ronald Rosenfeld.
+\newblock 1997.
+\newblock Statistical language modeling using the cmu-cambridge toolkit.
+\newblock pages 2707--2710.
+
+\bibitem[\protect\citename{Fredkin}1960]{fredkin}
+Edward Fredkin.
+\newblock 1960.
+\newblock Trie memory.
+\newblock {\em Commun. ACM}, 3(9):490--499.
+
+\bibitem[\protect\citename{Goodman and Gao}2000]{Goodman00l}
+Joshua Goodman and Jianfeng Gao.
+\newblock 2000.
+\newblock Language model size reduction by pruning and clustering.
+\newblock In {\em In ICSLP'00}, pages 110--113.
+
+\bibitem[\protect\citename{Graff}2003]{Graff2003}
+David Graff.
+\newblock 2003.
+\newblock {English Gigaword}.
+\newblock Linguistic Data Consortium, catalog number LDC2003T05.
+
+\bibitem[\protect\citename{Harb \bgroup et al.\egroup }2009]{harb}
+Boulos Harb, Ciprian Chelba, Jeffrey Dean, and Sanjay Ghemawat.
+\newblock 2009.
+\newblock Back-off language model compression.
+\newblock {\em Proceedings of Interspeech}, pages 352--355.
+
+\bibitem[\protect\citename{Hsu and Glass}2008]{paul}
+Bo-June Hsu and James Glass.
+\newblock 2008.
+\newblock Iterative language model estimation:efficient data structure \&
+  algorithms.
+\newblock In {\em In Proc. Interspeech}, pages 504--511.
+
+\bibitem[\protect\citename{Jelinek \bgroup et al.\egroup
+  }1990]{Jelinek90self-organizedlanguage}
+F.~Jelinek, B.~Merialdo, S.~Roukos, and M.~Strauss I.
+\newblock 1990.
+\newblock Self-organized language modeling for speech recognition.
+\newblock In {\em Readings in Speech Recognition}, pages 450--506. Morgan
+  Kaufmann.
+
+\bibitem[\protect\citename{Joanis and Larkin}2009]{joanis}
+Eric Joanis and Samuel Larkin.
+\newblock 2009.
+\newblock Tightly packed tries: How to fit large models into memory, and make
+  them load fast, too.
+\newblock {\em Proceedings of the NAACL HLT}, pages 31--39.
+
+\bibitem[\protect\citename{Stolcke}1998]{Stolcke98entropy}
+Andreas Stolcke.
+\newblock 1998.
+\newblock Entropy-based pruning of backoff language models.
+\newblock In {\em In Proc. DARPA Broadcast News Transcription and Understanding
+  Workshop}, pages 270--274.
+
+\bibitem[\protect\citename{Stolcke}2002]{Stolcke02srilm-}
+Andreas Stolcke.
+\newblock 2002.
+\newblock Srilm - an extensible language modeling toolkit.
+\newblock pages 901--904.
+
+\bibitem[\protect\citename{Talbot and Brants}2008]{talbot1}
+David Talbot and Thorsten Brants.
+\newblock 2008.
+\newblock Randomized language models via perfect hash functions.
+\newblock {\em Proceedings of ACL-08 HLT}, pages 505--513.
+
+\bibitem[\protect\citename{Talbot and
+  Osborne}2007a]{talbot-osborne:2007:ACLMain}
+David Talbot and Miles Osborne.
+\newblock 2007a.
+\newblock Randomised language modelling for statistical machine translation.
+\newblock In {\em Proceedings of ACL 07}, pages 512--519, Prague, Czech
+  Republic, June.
+
+\bibitem[\protect\citename{Talbot and Osborne}2007b]{Talbot07smoothedbloom}
+David Talbot and Miles Osborne.
+\newblock 2007b.
+\newblock Smoothed bloom filter language models: Tera-scale lms on the cheap.
+\newblock In {\em In Proc. of ACL}, pages 468--476.
+
+\bibitem[\protect\citename{Whittaker and Raj}2001]{quantization}
+Edward Whittaker and Bhinksha Raj.
+\newblock 2001.
+\newblock Quantization-based language model compression.
+
+\end{thebibliography}

@@ -1,0 +1,5 @@
+#surefire
+#Sun Mar 25 02:13:35 BST 2012
+user.dir=/home/wei/myprojects/languagemodel
+localRepository=/home/wei/.m2/repository
+basedir=/home/wei/myprojects/languagemodel
