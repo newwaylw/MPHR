@@ -2,3 +2,42 @@ This is a implementation of Minimal perfect hash LM based on our LREC 2010 paper
 
 http://www.lrec-conf.org/proceedings/lrec2010/summaries/860.html
 
+INSTALL AND RUN:
+
+run  'mvn clean install' to compile and install
+
+To build and look up a MPHR LM, you need to 'train' a minimal perfect hash function 
+for your given set of keys (ngrams), so
+
+----------------------------------------------------------------------------------
+STEP 1 - Train a MPH function for a given set of elements: 
+
+java uk.ac.shef.mphr.MPHFBuilder <ngram file> <mphf output object>
+
+It takes a input ngram file, one ngram per line and there should be no duplicated elements. If the file contains tabs '\t', only the string before the first tab will be considered (so you can pass a frequency ranked ngram file with a tab as separator). 
+
+It will output a mphf object file for this set of keys.
+---------------------------------------------------------------------------------
+STEP 2 - Building a MPHR LM model:
+
+java uk.ac.shef.mphr.MPHRStore 
+<MPHF object> : the generated mphf object file from STEP 1
+<no. key bits> : bits to represent finger-print(e.g. 12), refer to paper for false positive rates
+<no. value bits> : bits require to code all uniq values (frequencies), this can be easily calculated as ceil( log2 (#unique values) )
+<total element> : number of ngrams (keys)
+<ngram  file> : frequency ranked ngram file  "key	freq" format
+<outputbitsetfile_basename> : output model name, program will add ".bitset" as suffix name
+
+------------------------------------------------------------------------------------
+STEP 3 - LOOK UP:
+
+run this interactive utility class to look up a ngram:
+
+java uk.ac.shef.languagemodel.MPHRLanguageModel
+<MPHF object> : MPHF object file from STEP 1
+<no. key bits>  : bits to represent finger-print(e.g. 12), must be the same value used in STEP 2
+<no. value bits> : bits require to code all uniq values, must be the same value used in STEP 2
+<bitSetfile> : .bitset model generated from STEP 2
+<rank/value file> : rank/value file generated from STEP 2
+
+

@@ -457,14 +457,16 @@ public int loadRankFreqObject(String rankObjFile){
 	     String history = key.substring(0, key.length()-1);
 	     
 		   System.out.println("rank of \""+key+"\"="+mphrLM.rankOf(key));
-		   
+		   System.out.println("freq of \""+key+"\"="+mphrLM.getCount(key));
 		   //if the key contains '*', it is a context type count, so prob. estimation is not correct.
+		   /*
 		   if(!key.contains("*")){
 			   System.out.println("freq of \""+key+"\"="+mphrLM.getCount(key));
 			   System.out.println("p_ikn("+c+"|"+history+")="+mphrLM.getIKNProb(key));
 		   }else{
 			   System.out.println("context type of \""+key+"\"="+mphrLM.getCount(key));
 		   }
+		   */
 
 	   }while(true);
 	    

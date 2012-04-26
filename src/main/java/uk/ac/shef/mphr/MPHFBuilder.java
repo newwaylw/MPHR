@@ -64,7 +64,7 @@ public class MPHFBuilder {
 			long no = 0;
 			while ((key = reader.readLine()) != null) {
 				// assuming the input file is "key<TAB>value" per line.
-				key = key.replaceAll("^\\d+\\s+", "");
+				key = key.split("\t")[0];
 				chunkedHashStore.add(key);
 				no++;
 				if (no % 10000000 == 0) {

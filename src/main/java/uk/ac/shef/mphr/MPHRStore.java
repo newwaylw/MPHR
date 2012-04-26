@@ -62,14 +62,6 @@ public class MPHRStore {
            System.exit(-1);
        }
           }
-      /**
-    * encode fingerprint using bitsFingerprint bits
-    * and rank using bitsRank bits
-    * return a int representation (so maximum 32 bits)
-    * @param fingerprint
-    * @param rank
-    * @return
-    */
    
    	 /**
    	  * MPHR store the N-gram language Model,
@@ -100,7 +92,7 @@ public class MPHRStore {
 			 // Now read lines of text
     	    while ((line = reader.readLine()) != null){
 
-    	    	//freq	n g r m
+    	    	//n g r m	freq
     	    	keys = line.split("\\t");
     	    	if(keys.length != 2){ continue;}
     	    	no++;
@@ -109,9 +101,9 @@ public class MPHRStore {
     	    	//we know we've reached the next distinct value.
     	    	
     	    	//use long to cope with huge numbers 
-    	    	if(Long.parseLong(keys[0]) != freq){ 
+    	    	if(Long.parseLong(keys[1]) != freq){ 
     	    		rank++;
-    	    		freq = Long.parseLong(keys[0]);
+    	    		freq = Long.parseLong(keys[1]);
     	    		rankList.add(freq);
     	    	}
     	    	
@@ -128,7 +120,7 @@ public class MPHRStore {
     	    	//○ 月 ● 15865 -> rank 0
     	    	//payload = 4204920832
     	    	//offset = 35535232
-    	    	keyStr = keys[1];
+    	    	keyStr = keys[0];
     	    	int fingerprint_tmp = fpStore.fp(keyStr);
     	    	long payload = fpStore.encode(keyStr, rank);   //offset = 1525503 	    	
     	    	long offset = this.mphf.getLong(keyStr);
@@ -217,8 +209,10 @@ public class MPHRStore {
     	  mphrStore.writeRankList(outputFile+".rank.obj");
     	  
     	  logger.info("writing bit rank object file:"+outputFile+".rank.txt");
+    	  logger.info("there are:"+mphrStore.rankList.size()+" unique ranks.");
     	  mphrStore.writeRankListAsTxtFile(outputFile+".rank.txt");
 	  
+    	  
     	  //        long m1 = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 //        m1 /= 1024;
 //        System.out.println("memory used:"+m1+" KBytes.");
