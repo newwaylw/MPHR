@@ -1,14 +1,12 @@
 package uk.ac.shef.mphr;
 
-//import uk.ac.shef.languagemodel.Config;
 import uk.ac.shef.util.*;
 
 import java.io.*;
 import java.util.*;
 import java.util.zip.GZIPInputStream;
-
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import it.unimi.dsi.sux4j.io.ChunkedHashStore;
 import it.unimi.dsi.sux4j.mph.MinimalPerfectHashFunction;
@@ -28,9 +26,8 @@ public class MPHRStore {
    //an long list to hold counts for each rank.
    private ArrayList<Long> rankList;
    private MinimalPerfectHashFunction<String> mphf ;
-   
-   static Logger logger = Logger.getLogger(MPHRStore.class);
-   
+   static Logger logger = LogManager.getLogger(MPHRStore.class);
+
    /**
     * Constructor, allocate the bit array 
     * @param bitsPerFingerprint - use long so that it can store more than Integer.MAX_VALUE .
@@ -54,7 +51,7 @@ public class MPHRStore {
     * @param mphf
     */
    public void loadMPHF (String mphf){
-              Object o = Util.readObject(mphf);
+   	   Object o = Util.readObject(mphf);
        if(o instanceof MinimalPerfectHashFunction<?>){
            this.mphf = (MinimalPerfectHashFunction<String>) o;
        }else{
@@ -106,23 +103,8 @@ public class MPHRStore {
     	    		freq = Long.parseLong(keys[1]);
     	    		rankList.add(freq);
     	    	}
-    	    	
-    	    	//ignoring spaces in between
-    	    	//for English data we do need to keep the spaces.
-    	    	/*
-    	    	StringBuffer buf = new StringBuffer();
-    	    	for(int i=1;i<keys.length;i++){
-    	    		buf.append(keys[i]);
-    	    	}
-    	    	
-    	    	keyStr = buf.toString();
-    	    	*/
-    	    	//○ 月 ● 15865 -> rank 0
-    	    	//payload = 4204920832
-    	    	//offset = 35535232
     	    	keyStr = keys[0];
-    	    	int fingerprint_tmp = fpStore.fp(keyStr);
-    	    	long payload = fpStore.encode(keyStr, rank);   //offset = 1525503 	    	
+    	    	long payload = fpStore.encode(keyStr, rank);
     	    	long offset = this.mphf.getLong(keyStr);
     	    	 //offset = 1525503
     	    	offset *= dataLength;
@@ -149,7 +131,7 @@ public class MPHRStore {
        * @param outputFile file name to write to.
        */
       public void writeBitSet(String outputFile){
-    	  System.err.println("number of true bits:"+this.dataBitSet.cardinality());
+		  logger.debug("number of true bits:"+this.dataBitSet.cardinality());
     	  Util.serializeObject(this.dataBitSet, outputFile);
       }
       

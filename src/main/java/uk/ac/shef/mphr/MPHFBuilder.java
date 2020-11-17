@@ -11,7 +11,8 @@ import java.io.InputStreamReader;
 import java.util.Random;
 import java.util.zip.GZIPInputStream;
 
-import org.apache.log4j.Logger; //import org.apache.log4j.PropertyConfigurator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import uk.ac.shef.util.Util;
 
@@ -23,7 +24,7 @@ import uk.ac.shef.util.Util;
  */
 public class MPHFBuilder {
 
-	static Logger logger = Logger.getLogger(MPHFBuilder.class);
+	static Logger logger = LogManager.getLogger(MPHFBuilder.class);
 	public MPHFBuilder() {
 
 	}

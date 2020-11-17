@@ -6,9 +6,7 @@ public class CompactStore {
 	public static final int HASH_SEED = 1;
 	private final int finger_print_size; //number of bits to hold fingerprint
 	private final int value_size;  //number of bits to hold value
-	//private final int valuemask;
 	private final long valuemask;
-	//private final int fingerprintmask;
 	private final long fingerprintmask;
 	//	private LongBitSet bitSet;  //the bit array
 //	private long totalNumberOfBits;  //number of bits in bit array
@@ -34,13 +32,6 @@ public class CompactStore {
 	       return hash;
 	   }
 	   
-	   /*
-	   private int cleanVal(int value){
-			value&=valuemask;
-			return value;
-		}
-	   */
-	   
 	   /**
 	    * value is a (positive) integer (31 bits max)
 	    * @param key - key to be hash 
@@ -49,8 +40,6 @@ public class CompactStore {
 	    *  		  value will not be greater than 2^bitsPerElement
 	    */
 	   public long encode(String key,long value){
-			//long fpv=fp(key);
-			//fpv|=cleanVal(value);
 		   if(value > Math.pow(2, this.value_size) ){
 			   System.err.println("value:"+value +" exceeds the bits representable with "+this.value_size+" bits.");
 			   System.exit(-1);

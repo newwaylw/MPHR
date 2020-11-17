@@ -1,43 +1,40 @@
-This is a implementation of Minimal perfect hash LM based on our LREC 2010 paper:
+##### This is a implementation of Minimal perfect hash LM based on our LREC 2010 paper:
+[Efficient Minimal Perfect Hash Language Models](http://www.lrec-conf.org/proceedings/lrec2010/summaries/860.html)
 
-http://www.lrec-conf.org/proceedings/lrec2010/summaries/860.html
-
-INSTALL AND RUN:
-
-run  'mvn clean install' to compile and install
-
+### INSTALL AND RUN:
+```java
+mvn clean install
+```
 To build and look up a MPHR LM, you need to 'train' a minimal perfect hash function 
-for your given set of keys (ngrams), so
+for your given set of keys (ngrams), follow the steps below.
 
 ----------------------------------------------------------------------------------
-STEP 1 - Train a MPH function for a given set of elements: 
-
-java uk.ac.shef.mphr.MPHFBuilder <ngram file> <mphf output object>
-
-It takes a input ngram file, one ngram per line and there should be no duplicated elements. If the file contains tabs '\t', only the string before the first tab will be considered (so you can pass a frequency ranked ngram file with a tab as separator). 
+#### 1. Train a MPH function for a given set of elements: 
+```java
+java uk.ac.shef.mphr.MPHFBuilder <input file> <mphf output object>
+```
+It takes a input file, one item (text) per line and there should be no duplicated elements. If the file contain tabs '\t', only the string before the first tab will be considered (so you can pass a frequency ranked file with tabs as separators). 
 
 It will output a mphf object file for this set of keys.
----------------------------------------------------------------------------------
-STEP 2 - Building a MPHR LM model:
+
+### 2. Build a MPHR LM model:
 
 java uk.ac.shef.mphr.MPHRStore 
-<MPHF object> : the generated mphf object file from STEP 1
-<no. key bits> : bits to represent finger-print(e.g. 12), refer to paper for false positive rates
-<no. value bits> : bits require to code all uniq values (frequencies), this can be easily calculated as ceil( log2 (#unique values) )
-<total element> : number of ngrams (keys)
-<ngram  file> : frequency ranked ngram file  "key	freq" format
+<MPHF object> : the generated mphf object file from step 1
+<no. key bits> : bits to represent finger-print(e.g. 12) of a key, refer to paper for false positive rates
+<no. value bits> : bits require to encode all unique values, this can be easily calculated as Math.ceil( log2 (#unique values) )
+<total element> : number of keys
+<input file> : frequency ranked file  "key\tfreq" format
 <outputbitsetfile_basename> : output model name, program will add ".bitset" as suffix name
 
 ------------------------------------------------------------------------------------
-STEP 3 - LOOK UP:
+#### 3. MPHR LM LOOK UP:
 
 run this interactive utility class to look up a ngram:
 
 java uk.ac.shef.languagemodel.MPHRLanguageModel
 <MPHF object> : MPHF object file from STEP 1
 <no. key bits>  : bits to represent finger-print(e.g. 12), must be the same value used in STEP 2
-<no. value bits> : bits require to code all uniq values, must be the same value used in STEP 2
+<no. value bits> : bits require to encode all uniq values, must be the same value used in STEP 2
 <bitSetfile> : .bitset model generated from STEP 2
 <rank/value file> : rank/value file generated from STEP 2
-
-
